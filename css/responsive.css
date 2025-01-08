@@ -16,13 +16,7 @@
     padding: 12px 16px;
     font-size: 12px;
   }
-  .coupon button::placeholder,
-  .total button::placeholder {
+  #topBar p a {
     font-size: 12px;
-  }
-  .coupon button,
-  .total button {
-    font-size: 12px;
-    padding: 12px 30px;
   }
 }

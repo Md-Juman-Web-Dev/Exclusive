@@ -265,3 +265,273 @@ form .checkBox label {
     width: 450px;
   }
 }
+
+:root {
+    --primary: #fff;
+    --primary1: #363738;
+    --secondary: #f5f5f5;
+    --secondary1: #fefaf1;
+    --bg: #fff;
+    --text: #fafafa;
+    --text1: #7d8184;
+    --text2: #000;
+    --button: #000;
+    --secondary-2: #db4444;
+    --button1: #0f6;
+    --button2: #db4444;
+    --hover-button: #e07575;
+    --hover-button: #a0bce0;
+    --300-1px: rgba(0, 0, 0, 0.3);
+  }
+  /* common css */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", "Poppins", sans-serif;
+  }
+  a {
+    text-decoration: none;
+    color: #000 !important;
+  }
+  main {
+    background: var(--primary);
+  }
+  #top-sec {
+    padding: 48px 10px;
+    width: 100%;
+    position: relative;
+  }
+  #top-sec .quicklink a {
+    display: inline-block;
+    margin: 16px;
+    transition: 0.2s;
+  }
+  #top-sec .quicklink a:first-child{
+    margin-left: 0;
+  }
+  #top-sec .quicklink a::after {
+    content: ">";
+    display: inline-block;
+    position: absolute;
+    margin-left: 10px;
+    margin-right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #363738;
+    font-size: 20px;
+  }
+  #top-sec .quicklink a:last-child::after {
+    content: "";
+    width: 0;
+  }
+  #top-sec .quicklink a:active,
+  #top-sec .quicklink a:hover,
+  #top-sec .quicklink a:focus,
+  #top-sec .quicklink a:last-child {
+    color: var(--secondary-2) !important;
+  }
+  
+  /* form css */
+  
+  .bill-form h2 {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 83%;
+    letter-spacing: 0.04em;
+    color: var(--text2);
+    margin-bottom: 48px;
+  }
+  form label {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text2);
+    opacity: 0.4;
+    width: 420px;
+    margin-bottom: 8px;
+  }
+  form input {
+    border-radius: 4px;
+    background: var(--secondary);
+    border: none;
+    margin-bottom: 32px;
+    padding: 8px 20px;
+    width: 420px;
+  }
+  form .checkBox input,
+  form .checkBox label {
+    margin-bottom: 0;
+    margin-right: 10px;   
+    display: inline-block;
+  }
+  .cart-total {
+    padding: 32px 0;
+    padding: 32px 24px 32px 0;
+  }
+  .total div:nth-child(n) {
+    border-bottom: 1px solid var(--gray-scale-gray-–-100);
+    box-shadow: 0 1px 0 0 #e5e5e5;
+    background: var(--gray-scale-white);
+    padding: 5px 0 12px 0;
+  }
+  .total div:nth-child(n):last-child {
+    box-shadow: none;
+    border: none;
+  }
+  
+  .total span:nth-child(odd) {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: var(--gray-scale-gray-–-700);
+  }
+  .total span:nth-child(even) {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: var(--gray-scale-gray-–-800);
+  }
+  .total span.final {
+    font-weight: 800;
+    font-size: 16px;
+  }
+  .total button {
+    width: 100%;
+    border-radius: 4px;
+    margin-top: 16px;
+  }
+  .total button:hover,
+  .total button:active,
+  .total button:focus {
+    background: var(--primary1);
+    color: var(--secondary);
+  }
+  
+  .coupon {
+    margin-bottom: 20px;
+    padding-left: 0 !important;
+  }
+  .coupon input {
+    border: 1px solid var(--text2);
+    border-radius: 4px;
+    padding: 16px 24px;
+  }
+  .coupon input:focus,
+  .coupon button:focus,
+  .total button:focus {
+    outline: none;
+  }
+  .coupon button::placeholder,
+  .total button::placeholder {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text2);
+    opacity: 0.5;
+  }
+  .coupon button,
+  .order button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--text);
+    padding: 16px 48px;
+    background: var(--secondary-2);
+    cursor: pointer;
+    transition: 0.3s;
+    border-radius: 4px;
+    border: none;
+  }
+  
+  /* bill-preview & total bill section styling */
+  #bill-sec {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+  }
+  .bill-form{
+    width: 520px;
+  }
+  .bill-preview{
+      box-shadow: 0px 0px 10px var(--secondary);
+      width: 520px;
+  }
+  .bill-preview .item-bill{
+    padding-right: 24px;
+  }
+  
+  @media (max-width: 575px) {
+    .bill-form{
+      width:360px !important;
+    }
+    .bill-form h2{
+      width: fit-content;
+      margin-bottom: 22px;
+      font-size: 22px;
+    }
+    form label {
+      font-size: 16px;
+      width: 350px;
+      margin-bottom: 8px;
+    }
+    form input {
+      margin-bottom: 20px;
+      padding: 8px 20px;
+      width: 350px;
+    }
+    .bill-preview{
+        width: 360px;
+        padding-left: 10px;
+    }
+  }
+  
+  @media  (max-width: 768px) {
+    #top-sec {
+      padding: 48px 10px;
+      width: 100%;
+    }
+    #top-sec .quicklink a {
+      margin: 14px;
+      font-size: 16px;
+    }
+    #bill-sec {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+    .bill-form{
+      width: 520px;
+    }
+    .bill-preview .item-bill{
+      padding-right: 24px;
+    }
+    
+  }
+  
+  @media (max-width: 992px) {
+    #bill-sec {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+    .bill-form{
+      width: 520px;
+    }
+    .bill-preview .item-bill{
+      padding-right: 24px;
+    }
+    
+  }
+  @media (min-width: 993px) and (max-width: 1200px) {
+    #bill-sec {
+      gap: 40px;
+    }
+    .bill-form{
+      width: 450px;
+    }
+    .bill-preview{
+        width: 450px;
+    }
+  }
