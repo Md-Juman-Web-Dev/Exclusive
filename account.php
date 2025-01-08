@@ -10,7 +10,7 @@
 </head>
 
 <body>
-   <div id="navbar-placeholder"></div>
+   <?php require("header.php") ?>
    <main>
       <div id="top-sec">
          <div class="container">

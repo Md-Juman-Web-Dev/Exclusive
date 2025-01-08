@@ -1,0 +1,169 @@
+:root {
+  --primary: #fff;
+  --primary1: #363738;
+  --secondary: #f5f5f5;
+  --secondary1: #fefaf1;
+  --bg: #fff;
+  --text: #fafafa;
+  --text1: #7d8184;
+  --text2: #000;
+  --button: #000;
+  --secondary-2: #db4444;
+  --button1: #0f6;
+  --button2: #db4444;
+  --hover-button: #e07575;
+  --hover-button: #a0bce0;
+  --300-1px: rgba(0, 0, 0, 0.3);
+}
+/* common css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', 'Poppins', sans-serif;
+}
+a {
+  text-decoration: none;
+  color: #000 !important;
+}
+main {
+  background: var(--primary);
+}
+#top-sec {
+  padding: 48px 10px;
+  width: 100%;
+  position: relative;
+}
+#top-sec .quicklink a {
+  display: inline-block;
+  margin: 16px;
+  transition: 0.2s;
+}
+#top-sec .quicklink a::after {
+  content: '>';
+  display: inline-block;
+  position: absolute;
+  margin-left: 10px;
+  margin-right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #363738;
+  font-size: 20px;
+}
+#top-sec .quicklink a:last-child::after {
+  content: '';
+  width: 0;
+}
+#top-sec .quicklink a:active,
+#top-sec .quicklink a:hover,
+#top-sec .quicklink a:focus,
+#top-sec .quicklink a:last-child {
+  color: var(--secondary-2) !important;
+}
+
+.form .name {
+  display: flex !important;
+  justify-content: space-between;
+}
+
+.manage h4 {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text2) !important;
+  margin: 10px 0;
+}
+.manage ul li a {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: var(--hover-button) !important;
+  margin-left: 35px;
+}
+.manage ul li a:hover {
+  color: var(--secondary-2) !important ;
+}
+.submit button:last-child {
+  border-radius: 4px;
+  margin-top: 16px;
+}
+.submit button:hover,
+.submit button:active,
+.submit button:focus {
+  background: var(--primary1);
+  color: var(--secondary);
+}
+
+/* profile section styling */
+#profile {
+  box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
+  background: var(--primary);
+  padding: 40px 80px;
+  margin-bottom: 100px;
+}
+
+#profile h5 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 140%;
+  color: var(--secondary-2);
+}
+#profile .form label {
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 150%;
+  color: var(--text2);
+}
+#profile .form input {
+  /* padding: 10px 0; */
+}
+#profile .form .name,
+#profile .form .email {
+  margin: 16px 0 18px;
+}
+
+#profile #password input,
+#profile .form input {
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 13px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+  fill: var(--secondary);
+  border: none;
+  background: var(--secondary);
+  overflow: auto;
+}
+#profile #password input:hover,
+#profile #password input:focus,
+#profile #password input:active,
+#profile .form input {
+  border: none;
+  outline: none;
+}
+#profile #password input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text2);
+  opacity: 0.4;
+}
+.submit a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--text2);
+  vertical-align: middle;
+}
+.submit a:hover {
+  color: var(--secondary-2) !important;
+}
+.submit button {
+  border-radius: 4px;
+  padding: 16px 48px;
+  background: var(--secondary-2);
+  color: var(--bg);
+  border: none;
+  outline: none;
+  margin-top: 0 !important;
+}
