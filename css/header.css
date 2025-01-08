@@ -36,6 +36,9 @@ body {
   scroll-behavior: smooth;
 }
 
+.no-cancel-button::-webkit-search-cancel-button {
+  display: none;
+}
 :root {
   --primary: #fff;
   --primary1: #363738;
@@ -140,6 +143,9 @@ body {
   position: relative;
 }
 
+#navBar .searchBox input::placeholder{
+  color: #000;
+}
 #navBar .searchBox input {
   padding: 7px 12px 7px 20px;
   font-family: var(--font-family);
@@ -151,7 +157,7 @@ body {
   height: 2rem;
   border: none;
   outline: none;
-  background: var(--secondary);
+  background: #ddd;
 }
 #navBar .searchBox button{
   background: transparent;
@@ -161,9 +167,9 @@ body {
 
 #navBar .searchBox iconify-icon {
   position: absolute;
-  right: 10px;
+  right: 20px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-60%);
   font-size: 24px;
   cursor: pointer;
 }
@@ -209,16 +215,28 @@ body {
   bottom: 0;
 }
 #navBarBottom .bottomMenu{
-  background: #000;
-  width: 50px;
-  height: 50px;
+  background: #ddd;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 #navBarBottom .bottomMenu iconify-icon{
-  font-size: 20px;
-  color: var(--bg);
+  font-size: 15px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#navBarBottom .bottomMenu:focus,
+#navBarBottom .bottomMenu:hover{
+  background: #000;
+}
+#navBarBottom .bottomMenu:hover #navBarBottom .bottomMenu iconify-icon,
+#navBarBottom .bottomMenu:focus #navBarBottom .bottomMenu iconify-icon{
+  color: #fff;
 }
 /* Navbar bottom End here */

@@ -1,6 +1,6 @@
 <?php
 // Include the database connection
-include('db.php');
+include('../config/db.php');
 
 // Check if a search query is provided
 if (isset($_GET['query'])) {
