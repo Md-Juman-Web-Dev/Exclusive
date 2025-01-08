@@ -52,8 +52,8 @@ body {
   --hover-button: #e07575;
   --hover-button: #a0bce0;
   --300-1px: rgba(0, 0, 0, 0.3);
-  --font-family: "Poppins", sans-serif;
-  --second-family: "Inter", sans-serif;
+  --font-family: 'Poppins', sans-serif;
+  --second-family: 'Inter', sans-serif;
 }
 
 /* TopBar Start Here */
@@ -100,7 +100,8 @@ body {
 /* Nav bar start here */
 #navBar {
   padding: 23px 0;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 #navBar .menu ul {
@@ -153,7 +154,7 @@ body {
   outline: none;
   background: var(--secondary);
 }
-#navBar .searchBox button{
+#navBar .searchBox button {
   background: transparent;
   border: none;
   outline: none;
@@ -176,14 +177,15 @@ body {
   font-size: 32px;
   cursor: pointer;
   margin: 0 8px;
+  color: var(--button);
 }
 
 /* Nav bar end here */
 /* Nav Bar mobile start here */
-#navBarMobile{
+#navBarMobile {
   padding: 10px;
 }
-#navBarMobile .menuIcon button{
+#navBarMobile .menuIcon button {
   background: transparent;
   border: none;
   outline: none;
@@ -192,7 +194,7 @@ body {
 .offcanvas {
   max-width: 70%;
 }
-#navBarMobile .quickLinks iconify-icon{
+#navBarMobile .quickLinks iconify-icon {
   font-size: 20px;
 }
 .offcanvas.offcanvas-start {
@@ -201,14 +203,14 @@ body {
 /* Nav Bar mobile end here */
 
 /* Navbar bottom start here */
-#navBarBottom{
+#navBarBottom {
   box-shadow: rgba(0, 0, 0, 0.24) 0px -3px 8px;
   position: fixed;
   width: 100%;
   padding: 10px 0;
   bottom: 0;
 }
-#navBarBottom .bottomMenu{
+#navBarBottom .bottomMenu {
   background: #000;
   width: 50px;
   height: 50px;
@@ -217,7 +219,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-#navBarBottom .bottomMenu iconify-icon{
+#navBarBottom .bottomMenu iconify-icon {
   font-size: 20px;
   color: var(--bg);
 }

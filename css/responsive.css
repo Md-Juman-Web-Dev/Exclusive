@@ -1,6 +1,28 @@
-#topBar p{
+#topBar p {
+  font-size: 12px;
+}
+#topBar p a {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 991px) and (max-width: 1200px) {
+  .coupon input {
+    padding: 16px;
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 576px) {
+  .coupon input {
+    padding: 12px 16px;
     font-size: 12px;
-    }
-    #topBar p a{
-        font-size: 12px;
-        }
+  }
+  .coupon button::placeholder,
+  .total button::placeholder {
+    font-size: 12px;
+  }
+  .coupon button,
+  .total button {
+    font-size: 12px;
+    padding: 12px 30px;
+  }
+}
