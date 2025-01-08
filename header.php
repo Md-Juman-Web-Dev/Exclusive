@@ -125,7 +125,7 @@
                   </a>
                </div>
                <div class="col-3 bottomMenu">
-                  <a href="#">
+                  <a href="account.php">
                      <iconify-icon icon="tabler:user-filled"></iconify-icon>
                   </a>
                </div>
