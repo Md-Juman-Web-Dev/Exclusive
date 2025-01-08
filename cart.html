@@ -40,9 +40,9 @@
                         <div class="row pro-row align-items-center">
                             <div class="col-5 m-0 p-0 p-lg-2 row justify-content-center align-items-center">
                                 <div class="col-6"><img class="product-img " src="./img/product1.png" alt=""></div>
-                                <div class="col-6"><span class="cart-items">Capsicum</span></div>
+                                <div class="col-6"><span class="cart-items">H1 Gamepad</span></div>
                             </div>
-                            <div class="col-3 col-lg-1 text-center"><span class="cart-items">50$</span></div>
+                            <div class="col-3 col-lg-1 text-center"><span class="cart-items">500$</span></div>
                             <div class="col-4  col-lg-2  qntity">
                                 <div
                                     class="quantity w-100 d-flex text-center justify-content-center gap-4  align-items-center">
@@ -53,14 +53,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-none d-lg-block col-lg-4 text-center"><span id="total">50$</span></div>
+                            <div class="d-none d-lg-block col-lg-4 text-center"><span class="total">500$</span></div>
                         </div>
                         <div class="row pro-row align-items-center">
                             <div class="col-5 m-0 p-0 p-lg-2 row justify-content-center align-items-center">
                                 <div class="col-6 "><img class="product-img" src="./img/product2.png" alt=""></div>
-                                <div class="col-6 "><span>Red Tomato</span></div>
+                                <div class="col-6 "><span>LCD Monitor</span></div>
                             </div>
-                            <div class="col-3 col-lg-1 text-center"><span class="cart-items">50$</span></div>
+                            <div class="col-3 col-lg-1 text-center"><span class="cart-items">650$</span></div>
                             <div class="col-4 col-lg-2 text-center">
                                 <div
                                     class="quantity w-100 d-flex text-center justify-content-center gap-4  align-items-center">
@@ -71,8 +71,47 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-none d-lg-block col-lg-4 text-center"><span id="total">50$</span></div>
+                            <div class="d-none d-lg-block col-lg-4 text-center"><span class="total">650$</span></div>
                         </div>
+                        <!-- try with new product -->
+                        <div class="row pro-row align-items-center">
+                            <div class="col-5 m-0 p-0 p-lg-2 row justify-content-center align-items-center">
+                                <div class="col-6"><img class="product-img " src="./img/product3.png" alt=""></div>
+                                <div class="col-6"><span class="cart-items">HAVIT HV-G92 Gamepad</span></div>
+                            </div>
+                            <div class="col-3 col-lg-1 text-center"><span class="cart-items">550$</span></div>
+                            <div class="col-4  col-lg-2  qntity">
+                                <div
+                                    class="quantity w-100 d-flex text-center justify-content-center gap-4  align-items-center">
+                                    <span class="quantity-num" class="text-center">1</span>
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <button class="plus">^</button>
+                                        <button class="minus" style="transform: rotate(180deg);">^</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-none d-lg-block col-lg-4 text-center"><span class="total">550$</span></div>
+                        </div>
+                        <div class="row pro-row align-items-center">
+                            <div class="col-5 m-0 p-0 p-lg-2 row justify-content-center align-items-center">
+                                <div class="col-6"><img class="product-img " src="./img/produc4.png" alt=""></div>
+                                <div class="col-6"><span class="cart-items">AK-900 Wired Keyboard</span></div>
+                            </div>
+                            <div class="col-3 col-lg-1 text-center"><span class="cart-items">200$</span></div>
+                            <div class="col-4  col-lg-2  qntity">
+                                <div
+                                    class="quantity w-100 d-flex text-center justify-content-center gap-4  align-items-center">
+                                    <span class="quantity-num" class="text-center">1</span>
+                                    <div class="d-flex flex-column justify-content-center align-items-center">
+                                        <button class="plus">^</button>
+                                        <button class="minus" style="transform: rotate(180deg);">^</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-none d-lg-block col-lg-4 text-center"><span class="total">200$</span></div>
+                        </div>
+
+                         <!-- end -->
                         <div class="d-flex pro-row justify-content-between buttons align-items-center">
                             <a href="#">
                                 <button>Return to shop </button>
@@ -124,39 +163,41 @@
             $("#navbar-placeholder").load("header.php");
         });
 
-        // Select all elements
-let quantity = document.querySelectorAll('.quantity-num');
+
+        let quantity = document.querySelectorAll('.quantity-num');
 let plus = document.querySelectorAll('.plus');
 let minus = document.querySelectorAll('.minus');
-let total = document.querySelectorAll('#total');
+let total = document.querySelectorAll('.total');
 
-// Function to update total price
+let prices = [500, 650,550, 200]; 
+
 function updateTotal(index, quantityNum) {
-    let pricePerUnit = 50; // Replace 10 with the actual price per unit
-    total[index].textContent = (quantityNum * pricePerUnit) + "$";
+    let pricePerUnit = prices[index]; 
+    total[index].textContent = (quantityNum * pricePerUnit) + "$"; 
 }
 
-// Add event listeners to plus buttons
+// Increment Quantity
 plus.forEach((plusBtn, index) => {
     plusBtn.addEventListener("click", function () {
-        let quantityNum = parseInt(quantity[index].textContent, 10); // Get current quantity
-        quantityNum += 1; // Increment by 1
-        quantity[index].textContent = quantityNum; // Update quantity display
-        updateTotal(index, quantityNum); // Update total price
+        let quantityNum = parseInt(quantity[index].textContent, 10);
+        quantityNum += 1;
+        quantity[index].textContent = quantityNum;
+        updateTotal(index, quantityNum);
     });
 });
 
-// Add event listeners to minus buttons
+// Decrement Quantity
 minus.forEach((minusBtn, index) => {
     minusBtn.addEventListener("click", function () {
-        let quantityNum = parseInt(quantity[index].textContent, 10); // Get current quantity
-        if (quantityNum > 1) { // Prevent quantity from going below 1
-            quantityNum -= 1; // Decrement by 1
-            quantity[index].textContent = quantityNum; // Update quantity display
-            updateTotal(index, quantityNum); // Update total price
+        let quantityNum = parseInt(quantity[index].textContent, 10);
+        if (quantityNum > 1) {
+            quantityNum -= 1;
+            quantity[index].textContent = quantityNum;
+            updateTotal(index, quantityNum);
         }
     });
 });
+
     </script>
 </body>
 
