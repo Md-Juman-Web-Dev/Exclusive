@@ -81,12 +81,15 @@
                   </button>
                </div>
                <div class="col-6 d-flex justify-content-center">
-                  <a href="#"><img src="./img/logo.png" alt="logo"></a>
+                  <a href="index.php"><img src="./img/logo.png" alt="logo"></a>
                </div>
                <div class="col-3 quickLinks text-end">
-                  <iconify-icon icon="iconamoon:search-light"></iconify-icon>
+                  <iconify-icon class="searchIcon" icon="iconamoon:search-light"></iconify-icon>
                </div>
             </div>
+
+
+            <!----------=--- Search SideBar Start================= -->
          </div>
          <!-- menu sidebar start -->
          <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
@@ -135,4 +138,3 @@
       <!---------NavBar bottom End Here------------>
    </header>
    <!---------Header End Here------------>
-   
