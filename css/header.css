@@ -154,6 +154,7 @@ body {
   outline: none;
   background: var(--secondary);
 }
+
 #navBar .searchBox button {
   background: transparent;
   border: none;
@@ -185,21 +186,26 @@ body {
 #navBarMobile {
   padding: 10px;
 }
+
 #navBarMobile .menuIcon button {
   background: transparent;
   border: none;
   outline: none;
   font-size: 20px;
 }
+
 .offcanvas {
   max-width: 70%;
 }
+
 #navBarMobile .quickLinks iconify-icon {
   font-size: 20px;
 }
+
 .offcanvas.offcanvas-start {
   transition: 0.3s ease;
 }
+
 /* Nav Bar mobile end here */
 
 /* Navbar bottom start here */
@@ -210,17 +216,32 @@ body {
   padding: 10px 0;
   bottom: 0;
 }
+
 #navBarBottom .bottomMenu {
-  background: #000;
-  width: 50px;
-  height: 50px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #navBarBottom .bottomMenu iconify-icon {
   font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items:center;
   color: var(--bg);
+  color: #000;
 }
+#navBarBottom .bottomMenu:focus,
+#navBarBottom .bottomMenu:hover{
+  background: #000;
+}
+#navBarBottom .bottomMenu:focus iconify-icon,
+#navBarBottom .bottomMenu:hover iconify-icon{
+  color: #fff;
+}
+
 /* Navbar bottom End here */
