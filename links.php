@@ -7,4 +7,5 @@
     <script src="https://code.iconify.design/iconify-icon/2.2.0/iconify-icon.min.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/responsive.css" />

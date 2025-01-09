@@ -10,6 +10,7 @@
 
 <body>
    <header>
+
       <!---------Top Bar Start Here------------>
       <section id="topBar">
          <div class="container">
