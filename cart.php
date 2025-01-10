@@ -98,7 +98,7 @@
                            <span>Total</span>
                            <span class="final">100$</span>
                         </div>
-                        <a href="./checkout.html">
+                        <a href="./checkout.php">
                            <button>
                               Proceed to Checkout
                            </button>
