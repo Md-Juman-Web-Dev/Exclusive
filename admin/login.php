@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
     // Check if the user exists and the password is correct
     if ($admin && password_verify($password, $admin['password'])) {
         $_SESSION['admin_id'] = $admin['id'];  // Store admin ID in session
-        header("Location: admin.php");  // Redirect to the admin panel
+        header("Location: index.php");  // Redirect to the admin panel
         exit;
     } else {
         $error = "Invalid credentials.";

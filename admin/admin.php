@@ -9,50 +9,27 @@ if (!isset($_SESSION['admin_id'])) {
 // Database connection
 $pdo = new PDO('mysql:host=localhost;dbname=exclusive', 'root', '');
 
-// Handle category deletion
-if (isset($_GET['delete_category'])) {
-    $category_id = $_GET['delete_category'];
 
-    // Delete category and its subcategories
-    $stmt = $pdo->prepare("DELETE FROM categories WHERE id = ? OR parent_id = ?");
-    $stmt->execute([$category_id, $category_id]);
+// Fetch editable text for the top bar
+$stmt = $pdo->prepare("SELECT content FROM editable_text WHERE section = ?");
+$stmt->execute(['topBar']);
+$editableText = $stmt->fetchColumn();
 
-    echo "Category deleted successfully.";
+// Handle text update
+if (isset($_POST['update_text'])) {
+    $new_text = $_POST['topBar_text'];
+    $stmt = $pdo->prepare("UPDATE editable_text SET content = ? WHERE section = ?");
+    $stmt->execute([$new_text, 'topBar']);
+    echo "Text updated successfully.";
 }
 
-// Add category or subcategory
-if (isset($_POST['add_category'])) {
-    $category_name = $_POST['category_name'];
-    $category_slug = strtolower(str_replace(' ', '-', $category_name));
-    $parent_id = $_POST['parent_id'] ?: NULL;
-
-    // Check if the slug already exists
-    $stmt = $pdo->prepare("SELECT COUNT(*) FROM categories WHERE slug = ?");
-    $stmt->execute([$category_slug]);
-    $slug_count = $stmt->fetchColumn();
-
-    // If slug exists, modify it to be unique
-    if ($slug_count > 0) {
-        $original_slug = $category_slug;
-        $counter = 1;
-        while ($slug_count > 0) {
-            $category_slug = $original_slug . '-' . $counter;
-            $stmt->execute([$category_slug]);
-            $slug_count = $stmt->fetchColumn();
-            $counter++;
-        }
-    }
-
-    // Insert the category with the unique slug
-    $stmt = $pdo->prepare("INSERT INTO categories (name, slug, parent_id) VALUES (?, ?, ?)");
-    $stmt->execute([$category_name, $category_slug, $parent_id]);
-
-    echo "Category added successfully.";
+// Handle text deletion
+if (isset($_POST['delete_text'])) {
+    // Delete the content for the topBar section
+    $stmt = $pdo->prepare("UPDATE editable_text SET content = NULL WHERE section = ?");
+    $stmt->execute(['topBar']);
+    echo "Text deleted successfully.";
 }
-
-// Fetch categories and subcategories
-$categories = $pdo->query("SELECT * FROM categories WHERE parent_id IS NULL")->fetchAll(PDO::FETCH_ASSOC);
-$subcategories = $pdo->query("SELECT * FROM categories WHERE parent_id IS NOT NULL")->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -101,6 +78,21 @@ $subcategories = $pdo->query("SELECT * FROM categories WHERE parent_id IS NOT NU
                 </li>
             <?php endforeach; ?>
         </ul>
+
+
+   <!-- Edit Top Bar Text (Including <a> tag) -->
+   <h3>Edit Top Bar Text</h3>
+    <form method="post">
+        <label for="topBar_text">Edit Text (You can include HTML like <a> tags):</label><br>
+        <textarea name="topBar_text" rows="4" cols="50"><?php echo htmlspecialchars($editableText); ?></textarea><br>
+        <button type="submit" name="update_text">Update Text</button>
+    </form>
+
+    <!-- Delete Text Button -->
+    <h3>Delete Top Bar Text</h3>
+    <form method="post">
+        <button type="submit" name="delete_text" onclick="return confirm('Are you sure you want to delete the text?')">Delete Text</button>
+    </form>
     </div>
 </body>
 </html>
