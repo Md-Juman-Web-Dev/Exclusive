@@ -10,7 +10,9 @@
 </head>
 
 <body>
-   <?php req ?>
+<?php
+ require('header.php'); 
+ ?>
    <main>
       <div id="top-sec">
          <div class="container">
