@@ -31,7 +31,7 @@ $subcategories = $pdo->query("SELECT * FROM categories WHERE parent_id IS NOT NU
       <section id="topBanner">
          <div class="container">
             <div class="row">
-               <div class="col-lg-4">
+               <div class="col-lg-2">
                   <div class="categories">
                      <ul>
                         <?php foreach ($categories as $category): ?>

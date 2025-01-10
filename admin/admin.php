@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['admin_id'])) {
+    // Redirect to login page if not logged in
+    header("Location: login.php");
+    exit;
+}
+
 // Database connection
 $pdo = new PDO('mysql:host=localhost;dbname=exclusive', 'root', '');
 
@@ -17,7 +24,7 @@ if (isset($_GET['delete_category'])) {
 if (isset($_POST['add_category'])) {
     $category_name = $_POST['category_name'];
     $category_slug = strtolower(str_replace(' ', '-', $category_name));
-    $parent_id = $_POST['parent_id'] ?: NULL;  // If no parent is selected, set to NULL
+    $parent_id = $_POST['parent_id'] ?: NULL;
 
     // Check if the slug already exists
     $stmt = $pdo->prepare("SELECT COUNT(*) FROM categories WHERE slug = ?");
@@ -28,7 +35,6 @@ if (isset($_POST['add_category'])) {
     if ($slug_count > 0) {
         $original_slug = $category_slug;
         $counter = 1;
-        // Append number to slug until it's unique
         while ($slug_count > 0) {
             $category_slug = $original_slug . '-' . $counter;
             $stmt->execute([$category_slug]);
@@ -54,45 +60,47 @@ $subcategories = $pdo->query("SELECT * FROM categories WHERE parent_id IS NOT NU
 <head>
     <meta charset="UTF-8">
     <title>Admin Panel - Manage Categories</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-    <h2>Admin Panel - Manage Categories</h2>
-    
-    <!-- Add Category/Subcategory Form -->
-    <form method="post">
-        <label for="category_name">Category Name:</label>
-        <input type="text" name="category_name" required>
+    <div class="container">
+        <h2>Admin Panel - Manage Categories</h2>
+        <a href="logout.php" class="btn btn-danger mb-3">Logout</a>
+
+        <!-- Add Category/Subcategory Form -->
+        <form method="post">
+            <label class="mb-2" for="category_name">Category Name:</label>
+            <input class="form-control" type="text" name="category_name" required>
         
-        <!-- Parent Category Dropdown (for Subcategories) -->
-        <label for="parent_id">Select Parent Category (for Subcategory):</label>
-        <select name="parent_id">
-            <option value="">-- Select Parent Category --</option>
+            <label class="mb-2" for="parent_id">Select Parent Category (for Subcategory):</label>
+            <select name="parent_id" class="form-control">
+                <option value="">-- Select Parent Category --</option>
+                <?php foreach ($categories as $category): ?>
+                    <option value="<?php echo $category['id']; ?>"><?php echo htmlspecialchars($category['name']); ?></option>
+                <?php endforeach; ?>
+            </select>
+        
+            <button class="btn btn-primary mt-3" type="submit" name="add_category">Add Category</button>
+        </form>
+        <h3>Existing Categories</h3>
+        <ul>
             <?php foreach ($categories as $category): ?>
-                <option value="<?php echo $category['id']; ?>"><?php echo htmlspecialchars($category['name']); ?></option>
+                <li>
+                    <?php echo htmlspecialchars($category['name']); ?>
+                    <a class="btn btn-danger my-2" href="?delete_category=<?php echo $category['id']; ?>" onclick="return confirm('Are you sure you want to delete this category and its subcategories?')">Delete</a>
+                    <ul>
+                        <?php foreach ($subcategories as $subcategory): ?>
+                            <?php if ($subcategory['parent_id'] == $category['id']): ?>
+                                <li>
+                                    <?php echo htmlspecialchars($subcategory['name']); ?>
+                                    <a class="btn btn-danger" href="?delete_category=<?php echo $subcategory['id']; ?>" onclick="return confirm('Are you sure you want to delete this subcategory?')">Delete</a>
+                                </li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ul>
+                </li>
             <?php endforeach; ?>
-        </select>
-        
-        <button type="submit" name="add_category">Add Category</button>
-    </form>
-    
-    <h3>Existing Categories</h3>
-    <ul>
-        <?php foreach ($categories as $category): ?>
-            <li>
-                <?php echo htmlspecialchars($category['name']); ?> 
-                <a href="?delete_category=<?php echo $category['id']; ?>" onclick="return confirm('Are you sure you want to delete this category and its subcategories?')">Delete</a>
-                <ul>
-                    <?php foreach ($subcategories as $subcategory): ?>
-                        <?php if ($subcategory['parent_id'] == $category['id']): ?>
-                            <li>
-                                <?php echo htmlspecialchars($subcategory['name']); ?> 
-                                <a href="?delete_category=<?php echo $subcategory['id']; ?>" onclick="return confirm('Are you sure you want to delete this subcategory?')">Delete</a>
-                            </li>
-                        <?php endif; ?>
-                    <?php endforeach; ?>
-                </ul>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+        </ul>
+    </div>
 </body>
 </html>

@@ -12,24 +12,33 @@
    <header>
 
       <!---------Top Bar Start Here------------>
-      <section id="topBar">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-lg-11 col-12 text-center">
-                  <p>
-                     Summer Sale For All Swim Suits And Free Express Delivery - OFF
-                     50%! <a href="#">ShopNow</a>
-                  </p>
-               </div>
-               <div class="col-lg-1 text-end d-none d-lg-block">
-                  <select name="#" id="#">
-                     <option value="Eng">Eng</option>
-                     <option value="Ban">Ban</option>
-                  </select>
-               </div>
+      <?php
+// Fetch editable text for the top bar
+$stmt = $pdo->prepare("SELECT content FROM editable_text WHERE section = ?");
+$stmt->execute(['topBar']);
+$editableText = $stmt->fetchColumn();
+?>
+
+<section id="topBar">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-11 col-12 text-center">
+                <p>
+                    <?php echo $editableText; ?>
+                </p>
             </div>
-         </div>
-      </section>
+            <div class="col-lg-1 text-end d-none d-lg-block">
+                <select name="#" id="#">
+                    <option value="Eng">Eng</option>
+                    <option value="Ban">Ban</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
       <!---------Top Bar Start Here------------>
       <!---------NavBar Start Here------------>
       <section id="navBar" class="d-none d-lg-block">
