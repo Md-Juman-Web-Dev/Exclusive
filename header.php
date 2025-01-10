@@ -10,25 +10,35 @@
 
 <body>
    <header>
+
       <!---------Top Bar Start Here------------>
-      <section id="topBar">
-         <div class="container">
-            <div class="row align-items-center">
-               <div class="col-lg-11 col-12 text-center">
-                  <p>
-                     Summer Sale For All Swim Suits And Free Express Delivery - OFF
-                     50%! <a href="#">ShopNow</a>
-                  </p>
-               </div>
-               <div class="col-lg-1 text-end d-none d-lg-block">
-                  <select name="#" id="#">
-                     <option value="Eng">Eng</option>
-                     <option value="Ban">Ban</option>
-                  </select>
-               </div>
+      <?php
+// Fetch editable text for the top bar
+$stmt = $pdo->prepare("SELECT content FROM editable_text WHERE section = ?");
+$stmt->execute(['topBar']);
+$editableText = $stmt->fetchColumn();
+?>
+
+<section id="topBar">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-11 col-12 text-center">
+                <p>
+                    <?php echo $editableText; ?>
+                </p>
             </div>
-         </div>
-      </section>
+            <div class="col-lg-1 text-end d-none d-lg-block">
+                <select name="#" id="#">
+                    <option value="Eng">Eng</option>
+                    <option value="Ban">Ban</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
       <!---------Top Bar Start Here------------>
       <!---------NavBar Start Here------------>
       <section id="navBar" class="d-none d-lg-block">
@@ -81,12 +91,15 @@
                   </button>
                </div>
                <div class="col-6 d-flex justify-content-center">
-                  <a href="#"><img src="./img/logo.png" alt="logo"></a>
+                  <a href="index.php"><img src="./img/logo.png" alt="logo"></a>
                </div>
                <div class="col-3 quickLinks text-end">
-                  <iconify-icon icon="iconamoon:search-light"></iconify-icon>
+                  <iconify-icon class="searchIcon" icon="iconamoon:search-light"></iconify-icon>
                </div>
             </div>
+
+
+            <!----------=--- Search SideBar Start================= -->
          </div>
          <!-- menu sidebar start -->
          <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
@@ -125,7 +138,7 @@
                   </a>
                </div>
                <div class="col-3 bottomMenu">
-                  <a href="#">
+                  <a href="account.php">
                      <iconify-icon icon="tabler:user-filled"></iconify-icon>
                   </a>
                </div>
@@ -135,4 +148,3 @@
       <!---------NavBar bottom End Here------------>
    </header>
    <!---------Header End Here------------>
-   
