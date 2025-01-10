@@ -51,10 +51,10 @@ if (isset($_POST['register'])) {
             try {
                 //Server settings
                 $mail->isSMTP();
-                $mail->Host = 'smtp.mailendo.com';  // Gmail SMTP server
+                $mail->Host = 'smtp-relay.brevo.com';  // Gmail SMTP server
                 $mail->SMTPAuth = true;
-                $mail->Username = 'username';  // Your Gmail address
-                $mail->Password = 'password';  // Your Gmail password (or use App Password)
+                $mail->Username = '834306001@smtp-brevo.com';  // Your Gmail address
+                $mail->Password = 'HL3BzghW9takSJ1O';  // Your Gmail password (or use App Password)
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                 $mail->Port = 587;
 
