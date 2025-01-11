@@ -60,6 +60,9 @@ $subcategories = $pdo->query("SELECT * FROM categories WHERE parent_id IS NOT NU
 <body>
     <?php include './sidebar.php' ?>
 
+
+
+    <?php include './script.php' ?>
     
 </body>
 
