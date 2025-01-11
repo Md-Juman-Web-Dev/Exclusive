@@ -264,7 +264,7 @@
     </section>
    <!------------- Related Items End Here---------->
    <?php
-    include ('foote.php');
+    include ('footer.php');
     ?>
 </body>
 <script src="./js/bootstrap.bundle.min.js"></script>
