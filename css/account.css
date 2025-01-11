@@ -20,7 +20,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Arial', 'Poppins', sans-serif;
+  font-family: "Arial", "Poppins", sans-serif;
 }
 a {
   text-decoration: none;
@@ -40,7 +40,7 @@ main {
   transition: 0.2s;
 }
 #top-sec .quicklink a::after {
-  content: '>';
+  content: ">";
   display: inline-block;
   position: absolute;
   margin-left: 10px;
@@ -51,7 +51,7 @@ main {
   font-size: 20px;
 }
 #top-sec .quicklink a:last-child::after {
-  content: '';
+  content: "";
   width: 0;
 }
 #top-sec .quicklink a:active,
@@ -66,6 +66,10 @@ main {
   justify-content: space-between;
 }
 
+.manage {
+  padding: 20px !important;
+  padding-right: 0 !important;
+}
 .manage h4 {
   font-weight: 500;
   font-size: 16px;
@@ -98,15 +102,15 @@ main {
 #profile {
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.05);
   background: var(--primary);
-  padding: 40px 80px;
+  padding: 40px 20px !important;
   margin-bottom: 100px;
 }
-
 #profile h5 {
   font-weight: 500;
   font-size: 20px;
   line-height: 140%;
   color: var(--secondary-2);
+  margin-bottom: 15px !important;
 }
 #profile .form label {
   font-weight: 400;
@@ -115,16 +119,15 @@ main {
   color: var(--text2);
 }
 #profile .form input {
-  /* padding: 10px 0; */
+  width: 300px !important;
 }
 #profile .form .name,
 #profile .form .email {
   margin: 16px 0 18px;
 }
-
 #profile #password input,
 #profile .form input {
-  width: 100%;
+  width:280px !important;
   margin-bottom: 16px;
   padding: 13px 16px;
   font-size: 14px;
@@ -166,4 +169,71 @@ main {
   border: none;
   outline: none;
   margin-top: 0 !important;
+}
+@media (max-width: 768px) {
+  #profile {
+    padding: 40px 40px;
+    margin-bottom: 50px;
+  }
+  #profile h5 {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  #profile .form label {
+    font-size: 14px !important;
+  }
+  #profile .form .name,
+  #profile .form .email {
+    margin: 12px 0 14px;
+  }
+  #profile #password input,
+  #profile .form input {
+    padding: 10px 20px !important;
+    font-size: 14px;
+    width: auto !important;
+  }
+  #profile #password input::placeholder {
+    font-size: 14px;
+  }
+  .submit a {
+    font-size: 12px;
+  }
+  .submit button {
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 476px) {
+  .manage ul li a {
+    font-size: 12px !important;
+    margin-left: 35px;
+  }
+  #profile {
+    padding: 40px 10px !important;
+    margin-bottom: 50px;
+  }
+  #profile h5 {
+    font-size: 15px;
+  }
+  #profile .form label {
+    font-size: 12px !important;
+  }
+  #profile .form .name,
+  #profile .form .email {
+    margin: 12px 0 14px;
+  }
+  #profile #password input,
+  #profile .form input {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+  #profile #password input::placeholder {
+    font-size: 12px;
+  }
+  .submit a {
+    font-size: 12px;
+  }
+  .submit button {
+    padding: 5px 12px;
+    font-size: 14px !important;
+  }
 }

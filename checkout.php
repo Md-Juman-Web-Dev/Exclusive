@@ -10,7 +10,10 @@
 </head>
 
 <body>
-   <?php req ?>
+<?php 
+      // Include the header file
+      require('header.php'); 
+   ?>
    <main>
       <div id="top-sec">
          <div class="container">
@@ -110,7 +113,7 @@
                   <button>Apply Coupon</button>
                </div>
                <div class="d-flex order">
-                  <a href=""><button>Place Order</button></a>
+                  <a href="./account.php"><button>Place Order</button></a>
                </div>
             </div>
          </div>
